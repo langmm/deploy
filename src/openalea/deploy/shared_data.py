@@ -2,9 +2,9 @@
 #
 #       OpenAlea.Deploy: OpenAlea setuptools extension
 #
-#       Copyright 2008 INRIA - CIRAD - INRA
+#       Copyright 2008-2017 INRIA - CIRAD - INRA
 #
-#       File author(s): Thomas Cokelae
+#       File author(s): Christophe Pradal
 #
 #       Distributed under the Cecill-C License.
 #       See accompanying file LICENSE.txt or copy at
@@ -13,7 +13,7 @@
 #       OpenAlea WebSite : http://openalea.gforge.inria.fr
 #
 
-"""shared-data
+""" Management of shared data
 
 """
 import types
