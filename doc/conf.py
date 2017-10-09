@@ -2,7 +2,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 #
-# Package (Undefined, u'deploy') documentation build configuration file, created by
+# Package deploy documentation build configuration file, created by
 # sphinx-quickstart on Tue Jul  9 22:26:36 2013.
 #
 # This file is execfile()d with the current directory set to its
@@ -46,11 +46,12 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.doctest',
     'sphinx.ext.graphviz',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.todo',
-    'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
     'sphinx.ext.inheritance_diagram',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.mathjax',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.todo',
     'sphinx.ext.viewcode'
 ]
 
@@ -85,7 +86,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'openalea.deploy'
-copyright = u'2015, openalea.deploy'
+copyright = u'2008-2017, openalea.deploy'
 
 # The version info for the project you're documenting, acts as replacement
 # for |version| and |release|, also used in various other places throughout
@@ -246,7 +247,7 @@ latex_elements = {
 latex_documents = [
     ('index', 'deploy.tex',
      u'deploy Documentation',
-     u'openalea', 'manual'),
+     u'Christophe Pradal', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at
@@ -277,7 +278,7 @@ latex_documents = [
 man_pages = [
     ('index', 'deploy',
      u'deploy Documentation',
-     [u'openalea'], 1)
+     [u'Christophe Pradal'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -292,7 +293,7 @@ man_pages = [
 texinfo_documents = [
     ('index', 'deploy',
      u'deploy Documentation',
-     u'openalea',
+     u'Christophe Pradal',
      'deploy',
      'OpenAlea.Deploy support the installation of OpenAlea packages via the network and manage their dependencies. It is an extension of Setuptools.',
      'Miscellaneous'),
@@ -314,30 +315,15 @@ texinfo_documents = [
 # use apidoc to generate developer doc
 import os
 from os import path
-from sphinx.apidoc import create_modules_toc_file, recurse_tree
-
-
-class Opt(object):
-    pass
+from sphinx.apidoc import main
 
 
 rootpath = path.abspath(path.join(project_root, "src"))
-opts = Opt()
-opts.modulefirst = None
-opts.separatemodules = None
-opts.noheadings = None
-opts.destdir = path.abspath(path.join(project_root, "doc", "_dvlpt"))
-opts.suffix = source_suffix[1:]
-opts.dryrun = None
-opts.force = None
-opts.header = 'src'
-opts.maxdepth = 4
-opts.includeprivate = False
+destdir = path.abspath(path.join(project_root, "doc", "_dvlpt"))
 
-if not path.isdir(opts.destdir):
-    os.makedirs(opts.destdir)
+if not path.isdir(destdir):
+    os.makedirs(destdir)
 
-modules = recurse_tree(rootpath, [], opts)
-create_modules_toc_file(modules, opts)
+main(['-e', '-o', destdir, '-d', '4', '-s', source_suffix[1:], '--force', rootpath])
 
 # #}

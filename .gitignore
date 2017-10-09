@@ -80,7 +80,7 @@ target/
 
 # svn
 .svn
-
+.cache/
 
 # sphinx autogen file
 doc/_dvlpt/

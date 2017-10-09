@@ -1,64 +1,70 @@
 {
   "_pkglts": {
-    "auto_install": true, 
-    "install_front_end": "stdout", 
-    "use_prompts": false, 
-    "version": 2
-  }, 
+    "auto_install": true,
+    "install_front_end": "stdout",
+    "use_prompts": false,
+    "version": 8
+  },
   "base": {
     "authors": [
       [
-        "openalea", 
-        "openalea@inria.fr"
-      ], 
-      [
-        "Christophe Pradal", 
+        "Christophe Pradal",
         "christophe dot pradal at cirad dot fr"
-      ], 
+      ],
       [
         "Samuel Dufour-Kowalski",
         "dufourko at cirad dot fr"
       ],
       [
-        "revesansparole", 
+        "revesansparole",
         "revesansparole@gmail.com"
       ]
-    ], 
-    "namespace": "openalea", 
-    "pkgname": "deploy", 
+    ],
+    "namespace": "openalea",
+    "namespace_method": "pkg_util",
+    "pkgname": "deploy",
     "url": "https://openalea.gforge.inria.fr"
-  }, 
+  },
   "doc": {
     "description": "OpenAlea.Deploy support the installation of OpenAlea packages via the network and manage their dependencies. It is an extension of Setuptools.",
+    "fmt": "rst",
     "keywords": [
-      "setuptools", 
+      "setuptools",
       "openalea"
     ]
-  }, 
+  },
   "github": {
-    "owner": "{{ base.authors[0][0] }}", 
-    "project": "{{ base.pkgname }}", 
+    "owner": "{{ base.authors[0][0] }}",
+    "project": "{{ base.pkgname }}",
     "url": "https://github.com/{{ github.owner }}/{{ github.project }}"
-  }, 
+  },
   "license": {
-    "name": "cecill-c", 
-    "organization": "CIRAD/Inria", 
-    "project": "{{ base.pkgname }}", 
-    "year": 2016
-  }, 
+    "name": "cecill-c",
+    "organization": "CIRAD/Inria",
+    "project": "{{ base.pkgname }}",
+    "year": "2008-2017"
+  },
   "pysetup": {
     "intended_versions": [
       "27"
+    ],
+    "require": [
+      {
+        "name": "path.py"
+      }
     ]
-  }, 
+  },
   "sphinx": {
-    "autodoc_dvlpt": true, 
+    "autodoc_dvlpt": true,
+    "build_dir": "build/sphinx",
     "theme": "default"
-  }, 
-  "test": {}, 
+  },
+  "test": {
+    "suite_name": "pytest"
+  },
   "version": {
-    "major": 2, 
-    "minor": 0, 
-    "post": 0
+    "major": 2,
+    "minor": 1,
+    "post": 5
   }
 }
