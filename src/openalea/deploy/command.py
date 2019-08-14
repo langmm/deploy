@@ -115,7 +115,10 @@ def has_ext_modules(dist):
 def set_has_ext_modules(dist):
     """ Set new function handler to dist object """
     from types import MethodType as instancemethod
-    m = instancemethod(has_ext_modules, dist, Distribution)
+    if sys.version_info[0] == 2:
+        m = instancemethod(has_ext_modules, dist, Distribution)
+    else:
+        m = instancemethod(has_ext_modules, dist)
     dist.has_ext_modules = m
 
 
