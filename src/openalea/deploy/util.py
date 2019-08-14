@@ -255,6 +255,8 @@ def get_repo_list():
         u = urlopen(OPENALEA_REPOLIST)
         for i in u:
             ret.append(i.strip())
+        if sys.version_info[0] > 2:
+            ret = [x.decode('utf-8') for x in ret]
         return ret
 
     except Exception as e:
@@ -275,6 +277,8 @@ def get_recommended_prefix():
         prefixes = urlopen(OPENALEA_RECOMMENDED_PKG)
         for i in prefixes:
             ret.append(i.strip())
+        if sys.version_info[0] > 2:
+            ret = [x.decode('utf-8') for x in ret]
         return ret
 
     except Exception as e:
